@@ -4,7 +4,7 @@ import {
   ApiError,
 } from "@/types";
 
-const API_BASE_URL = "/api"; // Next.js API RoutesのベースURL
+const API_BASE_URL = "/api";
 
 export async function generateStory(
   curve: string
@@ -16,8 +16,15 @@ export async function generateStory(
   });
 
   if (!response.ok) {
-    const errorData: ApiError = await response.json();
-    throw new Error(errorData.message || "ストーリーの生成に失敗しました。");
+    let errorMessage = "ストーリーの生成に失敗しました。";
+    try {
+      const errorData: ApiError = await response.json();
+      errorMessage = errorData.message || errorMessage;
+    } catch {
+      const text = await response.text();
+      errorMessage = text || errorMessage;
+    }
+    throw new Error(errorMessage);
   }
   return response.json();
 }

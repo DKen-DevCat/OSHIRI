@@ -38,10 +38,8 @@ export function useOshiriCurveGenerator(): UseOshiriCurveGeneratorResult {
       const storyResult: GenerateStoryResponse = await generateStory(curveData);
       setStory(storyResult.story);
 
-      // 2. Send background prompt to OpenAI image API (DALL·E)
-      const imageResult: GenerateImageResponse = await generateImage(
-        storyResult.prompt
-      );
+      // 2. Send curveDataをpromptとして画像生成APIに渡す
+      const imageResult: GenerateImageResponse = await generateImage(curveData);
       setImageUrl(imageResult.imageUrl);
     } catch (err: unknown) {
       // エラーの型を unknown とし、型ガードで対応
