@@ -1,0 +1,8 @@
+# pack-refs with: peeled fully-peeled sorted 
+c6494035235354d8902e49776d84e0ee7528599b refs/heads/develop
+a4b3a0ec359d5559bbbf69f6f561bad1277ed33f refs/heads/feature/#1_setting-cording-env
+65a19c27d41c21b2d0651b50cdb59341124605a0 refs/heads/main
+87f3679a234b454a71042ab59c785807d5f8a379 refs/pull/1/head
+a4b3a0ec359d5559bbbf69f6f561bad1277ed33f refs/pull/2/head
+a4b3a0ec359d5559bbbf69f6f561bad1277ed33f refs/pull/3/head
+c6494035235354d8902e49776d84e0ee7528599b refs/pull/4/head
